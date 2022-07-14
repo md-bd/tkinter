@@ -1,4 +1,4 @@
-# Tkinter
+# Tkinter Course
 
 I have created this repository to practice the contents I learn on **Tkinter**.
 So far this repository contains the codes from a course I have completed online. 

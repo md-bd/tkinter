@@ -1,0 +1,23 @@
+# Slim version of Python
+FROM python:3.8.12-slim
+# https://towardsdatascience.com/empowering-docker-using-tkinter-gui-bf076d9e4974
+
+# Download Package Information
+RUN apt-get update -y
+
+# https://stackoverflow.com/questions/62786028/importerror-libgthread-2-0-so-0-cannot-open-shared-object-file-no-such-file-o
+RUN apt-get install -y libglib2.0-0 libsm6 libxrender1 libxext6
+
+# Install Tkinter
+RUN apt-get install tk -y
+RUN apt-get install python3-pip -y
+
+RUN pip3 install --upgrade pip
+
+RUN pip3 install opencv-python numpy Pillow
+
+# Commands to run Tkinter application
+WORKDIR /app
+# CMD ["/app/crop-image-app.py"]
+CMD ["image-crop-app.py"]
+ENTRYPOINT ["python3"]
